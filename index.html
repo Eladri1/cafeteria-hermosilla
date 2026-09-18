@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7b3d2a">
+  <title>Cafetería Hermosilla | Puerto de Sagunto</title>
+  <style>
+    :root { --espresso:#2c1612; --cocoa:#513027; --terracotta:#b85c3d; --cream:#fff8ef; --gold:#e2aa5b; --ink:#261715; --muted:#725e57; --line:#dec6ac; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:radial-gradient(circle at 13% 8%,rgba(226,170,91,.2),transparent 24rem),linear-gradient(135deg,#fffaf2,#f4e0c5); font-family:Arial,Helvetica,sans-serif; }
+    .hero { min-height:480px; padding:26px clamp(22px,6vw,90px) 72px; color:var(--cream); overflow:hidden; position:relative; background:linear-gradient(125deg,#21100d,#4d251c); }
+    .hero::before,.hero::after { content:""; position:absolute; border-radius:50%; pointer-events:none; }
+    .hero::before { width:540px; height:540px; right:-160px; top:-220px; border:54px solid rgba(226,170,91,.16); box-shadow:0 0 0 34px rgba(226,170,91,.07),0 0 0 98px rgba(226,170,91,.05); }
+    .hero::after { width:290px; height:290px; left:45%; bottom:-210px; background:radial-gradient(circle at 50% 35%,rgba(255,226,179,.18) 0 5%,transparent 5.5% 12%,rgba(255,226,179,.08) 12.5% 14%,transparent 14.5%); }
+    nav,.hero-content { max-width:1160px; margin-left:auto; margin-right:auto; position:relative; z-index:1; }
+    nav { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:11px; color:inherit; text-decoration:none; font-family:Georgia,serif; font-weight:700; font-size:1.08rem; letter-spacing:.02em; }
+    .brand-mark { display:grid; place-items:center; width:37px; height:37px; border:1px solid rgba(255,255,255,.65); border-radius:50%; font-size:1.22rem; }
+    .nav-links { display:flex; gap:clamp(12px,2vw,28px); }.nav-links a { color:var(--cream); text-decoration:none; font-size:.9rem; font-weight:700; }
+    .hero-content { margin-top:92px; }.eyebrow { margin:0 0 15px; color:#ffd29a; font-size:.78rem; font-weight:800; letter-spacing:.17em; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; } h1 { max-width:720px; margin-bottom:19px; font-family:Georgia,serif; font-size:clamp(3rem,7vw,5.8rem); line-height:.98; letter-spacing:-.055em; }
+    .hero-copy { max-width:520px; font-size:1.08rem; line-height:1.65; color:#f9e7d1; }.hero-badge { display:inline-flex; align-items:center; gap:9px; margin-top:19px; padding:11px 15px; border:1px solid rgba(255,255,255,.34); border-radius:999px; background:rgba(255,255,255,.1); font-size:.9rem; }
+    main { max-width:1160px; margin:-36px auto 0; padding:0 clamp(18px,3vw,34px) 58px; position:relative; }.intro { display:grid; grid-template-columns:.9fr 1.1fr; gap:28px; padding:clamp(25px,5vw,50px); border-radius:20px; background:var(--cream); box-shadow:0 18px 45px rgba(80,42,27,.13); }
+    .intro h2,.menu-header h2 { margin-bottom:13px; font-family:Georgia,serif; font-size:clamp(2rem,4vw,3.25rem); line-height:1; letter-spacing:-.045em; }.intro p { margin-bottom:0; color:var(--muted); line-height:1.7; }
+    .details { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; align-self:center; }.detail { padding:15px 12px; text-align:center; border-left:1px solid var(--line); }.detail:first-child { border-left:0; }.detail strong { display:block; margin-bottom:5px; color:var(--terracotta); font-size:.73rem; letter-spacing:.1em; text-transform:uppercase; }.detail span { font-size:.92rem; font-weight:700; }
+    .menu { padding-top:86px; }.menu-header { max-width:650px; margin:0 auto 38px; text-align:center; }.menu-header .eyebrow { color:var(--terracotta); }.menu-header p { color:var(--muted); line-height:1.6; }.menu-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:23px; }
+    .menu-card { padding:clamp(23px,4vw,37px); border:1px solid rgba(177,128,84,.26); border-radius:18px; background:rgba(255,251,245,.78); }.menu-card.featured { color:var(--cream); background:var(--cocoa); border-color:var(--cocoa); }.menu-card h3 { margin-bottom:23px; font-family:Georgia,serif; font-size:1.7rem; }.menu-card h3::after { content:""; display:block; width:44px; margin-top:10px; border-bottom:3px solid var(--gold); }
+    .item { display:grid; grid-template-columns:1fr auto; gap:10px; padding:13px 0; border-bottom:1px dashed var(--line); }.featured .item { border-color:rgba(255,255,255,.25); }.item:last-child { border-bottom:0; }.item-name { font-size:1rem; font-weight:800; }.item-note { grid-column:1 / 2; color:var(--muted); font-size:.84rem; line-height:1.35; }.featured .item-note { color:#e6cbbb; }.price { color:var(--terracotta); font-weight:800; white-space:nowrap; }.featured .price { color:#ffd08e; }
+    .callout { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-top:25px; padding:clamp(24px,5vw,38px); border-radius:17px; color:var(--cream); background:linear-gradient(120deg,var(--terracotta),#d0814b); }.callout h2 { margin-bottom:7px; font-family:Georgia,serif; font-size:clamp(1.8rem,4vw,2.6rem); }.callout p { margin:0; color:#fff3df; line-height:1.5; }.callout span { font-size:2rem; }
+    footer { padding:33px 18px 42px; color:#f6e7d3; text-align:center; background:var(--espresso); } footer strong { font-family:Georgia,serif; font-size:1.15rem; } footer p { margin:9px 0 0; color:#d8bca5; font-size:.87rem; }
+    @media (max-width:720px) { .hero { min-height:430px; padding-top:20px; }.nav-links { display:none; }.hero-content { margin-top:75px; }.intro,.menu-grid { grid-template-columns:1fr; }.details { margin-top:4px; }.detail { padding:13px 6px; }.callout { align-items:flex-start; } }
+    @media (max-width:390px) { .details { grid-template-columns:1fr; }.detail { border-left:0; border-top:1px solid var(--line); }.detail:first-child { border-top:0; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav>
+      <a class="brand" href="#" aria-label="Cafetería Hermosilla, inicio"><span class="brand-mark">☕</span> Cafetería Hermosilla</a>
+      <div class="nav-links"><a href="#carta">Carta</a><a href="#especialidades">Especialidades</a><a href="#puerto-sagunto">Puerto de Sagunto</a></div>
+    </nav>
+    <div class="hero-content">
+      <p class="eyebrow">Café · Bollería · Desayunos</p>
+      <h1>El rincón que huele a recién hecho.</h1>
+      <p class="hero-copy">Tu parada de cada día en Puerto de Sagunto: buen café, bollería doradita y ese ratito que sabe mejor sin prisa.</p>
+      <div class="hero-badge">✦ <span>Hecho para compartir, preparado con cariño</span></div>
+    </div>
+  </header>
+  <main>
+    <section class="intro" id="puerto-sagunto">
+      <div><p class="eyebrow">Bienvenidos</p><h2>Un café con alma de barrio.</h2><p>En Cafetería Hermosilla cuidamos lo sencillo: el aroma del café, una tostada bien hecha y la bollería que alegra cualquier mañana.</p></div>
+      <div class="details" aria-label="Resumen de la cafetería"><div class="detail"><strong>Ubicación</strong><span>Puerto de Sagunto</span></div><div class="detail"><strong>Especialidad</strong><span>Bollería & café</span></div><div class="detail"><strong>Modalidad</strong><span>En local y para llevar</span></div></div>
+    </section>
+    <section class="menu" id="carta">
+      <div class="menu-header"><p class="eyebrow">Nuestra carta</p><h2>Pequeños placeres, grandes pausas.</h2><p>Una selección pensada para desayunar, merendar o simplemente darse un capricho.</p></div>
+      <div class="menu-grid">
+        <article class="menu-card featured"><h3>Cafés y bebidas</h3><div class="item"><span class="item-name">Espresso</span><span class="price">1,40 €</span><span class="item-note">Intenso, corto y aromático.</span></div><div class="item"><span class="item-name">Cortado</span><span class="price">1,60 €</span><span class="item-note">El equilibrio perfecto de café y leche.</span></div><div class="item"><span class="item-name">Café con leche</span><span class="price">1,90 €</span><span class="item-note">Cremoso y recién preparado.</span></div><div class="item"><span class="item-name">Capuccino</span><span class="price">2,50 €</span><span class="item-note">Con espuma de leche y toque de cacao.</span></div><div class="item"><span class="item-name">Chocolate caliente</span><span class="price">2,70 €</span><span class="item-note">Denso, dulce y reconfortante.</span></div></article>
+        <article class="menu-card"><h3>Bollería recién hecha</h3><div class="item"><span class="item-name">Croissant de mantequilla</span><span class="price">1,70 €</span><span class="item-note">Hojaldre crujiente y corazón tierno.</span></div><div class="item"><span class="item-name">Napolitana de chocolate</span><span class="price">2,10 €</span><span class="item-note">Rellena de chocolate fundente.</span></div><div class="item"><span class="item-name">Ensaimada</span><span class="price">2,20 €</span><span class="item-note">Clásica, esponjosa y con azúcar glas.</span></div><div class="item"><span class="item-name">Palmera de chocolate</span><span class="price">2,30 €</span><span class="item-note">Hojaldre caramelizado y baño de cacao.</span></div><div class="item"><span class="item-name">Bizcocho casero</span><span class="price">2,40 €</span><span class="item-note">Pregunta por el sabor del día.</span></div></article>
+        <article class="menu-card"><h3>Desayunos</h3><div class="item"><span class="item-name">Desayuno Hermosilla</span><span class="price">4,90 €</span><span class="item-note">Café con leche + zumo + tostada de tomate.</span></div><div class="item"><span class="item-name">Dulce despertar</span><span class="price">4,50 €</span><span class="item-note">Café o infusión + pieza de bollería.</span></div><div class="item"><span class="item-name">Tostada mediterránea</span><span class="price">3,40 €</span><span class="item-note">Pan tostado, tomate, aceite de oliva y sal.</span></div><div class="item"><span class="item-name">Tostada especial</span><span class="price">4,20 €</span><span class="item-note">Aguacate, tomate y semillas.</span></div></article>
+        <article class="menu-card"><h3>Salado y ligero</h3><div class="item"><span class="item-name">Bikini de jamón y queso</span><span class="price">3,80 €</span><span class="item-note">Calentito, dorado y al punto.</span></div><div class="item"><span class="item-name">Bocadillo de tortilla</span><span class="price">4,50 €</span><span class="item-note">Con pan crujiente y tortilla jugosa.</span></div><div class="item"><span class="item-name">Croissant mixto</span><span class="price">4,10 €</span><span class="item-note">Relleno de jamón y queso fundido.</span></div><div class="item"><span class="item-name">Zumo natural de naranja</span><span class="price">2,60 €</span><span class="item-note">Exprimido al momento.</span></div></article>
+      </div>
+      <section class="callout" id="especialidades"><div><h2>¿Un capricho para llevar?</h2><p>Pregunta por la bollería del día y llévate tu favorita para disfrutarla donde quieras.</p></div><span aria-hidden="true">🥐</span></section>
+    </section>
+  </main>
+  <footer><strong>Cafetería Hermosilla</strong><p>Puerto de Sagunto · Café, bollería y desayunos</p><p>Precios y disponibilidad de muestra; actualízalos con la carta del local.</p></footer>
+</body>
+</html>
